@@ -31,7 +31,6 @@ public class file1 {
       Boolean check2 = false ;
       Boolean check3 = null ;
       Boolean check4 = Boolean.valueOf("true") ;
-      Boolean check5 ;
       System.err.println(check + " " + check2 + " " +  check3 + " " + check4 + " " );
       }
 
