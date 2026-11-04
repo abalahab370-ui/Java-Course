@@ -136,7 +136,7 @@ class Cinema {
 }
 
 // Main Test Class
-public class Main {
+public class Task3{
     public static void main(String[] args) {
         // 1. Create a Cinema instance[cite: 159]
         Cinema cnxCinema = new Cinema("ESI-SBA Cineplex");
