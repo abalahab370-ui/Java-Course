@@ -10,11 +10,14 @@ class FsItem {
 
     // Validation and renaming method
     public boolean setName(String newName) {
+
         if (newName != null && !newName.trim().isEmpty() && !newName.contains("/") && !newName.contains("\\")) {
             this.name = newName;
             return true;
         }
-        return false;
+        else {
+            throw new IllegalArgumentException("Name must not be empty or contain path separators.");
+        }
     }
 
     public String getName() {
@@ -81,11 +84,17 @@ public class Task2 {
 
         // 3. Test renaming with invalid inputs (empty or forbidden characters)
         System.out.println("\n=== Testing Renaming (Invalid Inputs) ===");
-        boolean invalidRename1 = img.setName("");
-        System.out.println("Renamed to empty string? " + invalidRename1);
+        try {
+            img.setName("");
+        } catch (IllegalArgumentException error) {
+            System.out.println("Could not rename to an empty string: " + error.getMessage());
+        }
 
-        boolean invalidRename2 = img.setName("bad/name.png");
-        System.out.println("Renamed with slash ('/)? " + invalidRename2);
+        try {
+            img.setName("bad/name.png");
+        } catch (IllegalArgumentException error) {
+            System.out.println("Could not rename with slash ('/): " + error.getMessage());
+        }
         System.out.println("Final Image Info: " + img.info());
     }
 }
